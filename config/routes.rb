@@ -1,5 +1,14 @@
 Onboarding::Application.routes.draw do
-  get "pages/signup"
+  resources :users
+  resources :sessions, :only => [:new, :create, :destroy]
+
+  root :to => "pages#home"
+
+  match "/signup", :to => "users#new"
+  match "/home", :to => "pages#home"
+  match "/about", :to => "pages#about"
+  match "/contact", :to => "pages#contact"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
