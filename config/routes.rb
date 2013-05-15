@@ -1,4 +1,18 @@
 Onboarding::Application.routes.draw do
+  get "invitations/new"
+
+  get "invitations/confirm"
+
+  get "item_templates/new"
+
+  get "task_templates/new"
+
+  get "items/new"
+
+  get "tasks/new"
+
+  get "plans/new"
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users
