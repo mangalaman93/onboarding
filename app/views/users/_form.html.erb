@@ -1,5 +1,19 @@
+<% if @user.errors.any? %>
+	<h2 style="color:red"> error occured while saving </h2>
+	<% @user.errors.full_messages.each do |m| %>
+		<ul>
+			<li style="color:red"> <%= m %> </li>
+		</ul>
+	<% end %>
+<% end %>
+
 <%= simple_form_for @user, :html => {:id => "signin_form"} do |f| %>
+	<%= f.input :name, required: true %>
   <%= f.input :email, required: true %>
-  <%= f.input :enc_password, label: 'Password', input_html: { maxlength: 20 } %>
-  <%= f.button :submit, "Sign In" %>
+  <%= f.input :date_of_birth, as: :date, start_year: Date.today.year - 90,
+                              end_year: Date.today.year, order: [:day, :month, :year],
+                              required: true %>
+  <%= f.input :password, label: 'Password', input_html: { maxlength: 15 }, required: true %>
+  <%= f.input :password_confirmation, label: 'Confirm', required: true %>
+  <%= f.button :submit, "Sign Up" %>
 <% end %>
