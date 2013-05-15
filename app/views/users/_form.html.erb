@@ -1,0 +1,5 @@
+<%= simple_form_for @user, :html => {:id => "signin_form"} do |f| %>
+  <%= f.input :email, required: true %>
+  <%= f.input :enc_password, label: 'Password', input_html: { maxlength: 20 } %>
+  <%= f.button :submit, "Sign In" %>
+<% end %>

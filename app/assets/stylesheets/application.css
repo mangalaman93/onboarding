@@ -15,7 +15,6 @@
 
 /* Body and structure
 -------------------------------------------------- */
-
 body {
   position: relative;
   padding-top: 40px;
@@ -29,7 +28,6 @@ h3 code {
 
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
-
 body > .navbar {
   font-size: 13px;
 }
@@ -50,4 +48,47 @@ body > .navbar .brand {
 body > .navbar .brand:hover {
   text-decoration: none;
   text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+}
+
+/* Special grid styles
+-------------------------------------------------- */
+.show-grid {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.show-grid [class*="span"] {
+  background-color: #da7;
+  text-align: center;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  min-height: 40px;
+  line-height: 40px;
+}
+.show-grid [class*="span"]:hover {
+  background-color: #fa7;
+}
+.show-grid .show-grid {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.show-grid .show-grid [class*="span"] {
+  margin-top: 5px;
+}
+.show-grid [class*="span"] [class*="span"] {
+  background-color: #ccc;
+}
+.show-grid [class*="span"] [class*="span"] [class*="span"] {
+  background-color: #999;
+}
+
+/* custom css */
+#singin_header {
+  margin-left: 17%;
+  margin-right: 15%;
+}
+
+#signin_form {
+  margin-top: 6%;
+  margin-left: 10%;
 }
