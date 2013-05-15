@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515080555) do
+ActiveRecord::Schema.define(:version => 20130515083823) do
 
   create_table "invitations", :force => true do |t|
     t.integer  "from_id"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20130515080555) do
   add_index "invitations", ["to_id"], :name => "index_invitations_on_to_id"
 
   create_table "item_templates", :force => true do |t|
-    t.string   "type"
+    t.string   "type_of"
     t.string   "description"
     t.integer  "duration"
     t.string   "comments"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20130515080555) do
   add_index "item_templates", ["task_template_id"], :name => "index_item_templates_on_task_template_id"
 
   create_table "items", :force => true do |t|
-    t.string   "type"
+    t.string   "type_of"
     t.string   "description"
     t.integer  "duration"
     t.integer  "user_id"
