@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  user_id: 1
+  creator_id: 1
+  start_date: 2013-05-15 11:41:16
+  end_date: 2013-05-15 11:41:16
+  hr_id: 1
+  bu_id: 1
+  manager_id: 1
+  mentor_id: 1
+
+two:
+  title: MyString
+  user_id: 1
+  creator_id: 1
+  start_date: 2013-05-15 11:41:16
+  end_date: 2013-05-15 11:41:16
+  hr_id: 1
+  bu_id: 1
+  manager_id: 1
+  mentor_id: 1

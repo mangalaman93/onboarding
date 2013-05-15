@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  description: MyString
+  duration: 1
+  comments: MyString
+  metadata: MyText
+  task_template_id: 1
+
+two:
+  type: 
+  description: MyString
+  duration: 1
+  comments: MyString
+  metadata: MyText
+  task_template_id: 1
