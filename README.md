@@ -1,2 +1,2 @@
-Making Onboarding easy!
+OnBoarding made easy and personalized!
 

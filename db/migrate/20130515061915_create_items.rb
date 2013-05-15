@@ -14,5 +14,6 @@ class CreateItems < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :items, :task_id
   end
 end

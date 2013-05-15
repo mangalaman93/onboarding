@@ -11,7 +11,86 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130514104339) do
+ActiveRecord::Schema.define(:version => 20130515062437) do
+
+  create_table "invitations", :force => true do |t|
+    t.integer  "from_id"
+    t.integer  "to_id"
+    t.text     "content"
+    t.string   "guid"
+    t.datetime "sent_date"
+    t.boolean  "is_confirmed"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "invitations", ["from_id"], :name => "index_invitations_on_from_id"
+  add_index "invitations", ["to_id"], :name => "index_invitations_on_to_id"
+
+  create_table "item_templates", :force => true do |t|
+    t.string   "type"
+    t.string   "description"
+    t.integer  "duration"
+    t.string   "comments"
+    t.text     "metadata"
+    t.integer  "task_template_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "item_templates", ["task_template_id"], :name => "index_item_templates_on_task_template_id"
+
+  create_table "items", :force => true do |t|
+    t.string   "type"
+    t.string   "description"
+    t.integer  "duration"
+    t.integer  "user_id"
+    t.datetime "due_date"
+    t.text     "comments"
+    t.text     "metadata"
+    t.integer  "task_id"
+    t.boolean  "is_done"
+    t.boolean  "is_vetoed"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "items", ["task_id"], :name => "index_items_on_task_id"
+
+  create_table "plans", :force => true do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.integer  "creator_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "hr_id"
+    t.integer  "bu_id"
+    t.integer  "manager_id"
+    t.integer  "mentor_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "plans", ["user_id"], :name => "index_plans_on_user_id"
+
+  create_table "task_templates", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tasks", :force => true do |t|
+    t.string   "title"
+    t.integer  "creator_id"
+    t.integer  "owner_id"
+    t.datetime "invitation_sentdate"
+    t.boolean  "owner_confirmed"
+    t.integer  "plan_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "tasks", ["plan_id"], :name => "index_tasks_on_plan_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

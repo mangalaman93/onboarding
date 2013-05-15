@@ -10,5 +10,7 @@ class CreateInvitations < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :invitations, :from_id
+    add_index :invitations, :to_id
   end
 end

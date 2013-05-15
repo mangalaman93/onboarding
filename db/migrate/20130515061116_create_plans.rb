@@ -13,5 +13,6 @@ class CreatePlans < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :plans, :user_id
   end
 end

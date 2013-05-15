@@ -10,5 +10,6 @@ class CreateItemTemplates < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :item_templates, :task_template_id
   end
 end
