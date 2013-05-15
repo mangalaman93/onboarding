@@ -120,6 +120,8 @@ ActiveRecord::Schema.define(:version => 20130515080555) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "salt"
+    t.date     "date_of_birth"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

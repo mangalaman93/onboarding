@@ -1,2 +1,21 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div id="singin_header" class="row show-grid">
+	<div class="span9">
+		<strong>Sign in as an Employee/Intern on OnBoarding Program</strong></br>
+	</div>
+
+	<% if @user.errors.any? %>
+		<h2 style="color:red"> error occured while saving </h2>
+		<% @user.errors.full_messages.each do |m| %>
+			<ul>
+				<li style="color:red"> <%= m %> </li>
+			</ul>
+		<% end %>
+	<% end %>
+
+	<%= simple_form_for @user, :html => {:id => "signin_form"} do |f| %>
+	  <%= f.input :email, required: true %>
+	  <%= f.input :password, label: 'Password', input_html: { maxlength: 15 }, required: true %>
+	  <%= f.button :submit, "Sign In" %>
+	<% end %>
+
+</div>
