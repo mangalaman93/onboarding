@@ -83,14 +83,15 @@ body > .navbar .brand:hover {
 }
 
 /* custom css */
-#singin_header {
+#singin {
   margin-left: 17%;
   margin-right: 15%;
 }
 
 #signin_form {
-  margin-top: 6%;
-  margin-left: 10%;
+  padding-top: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 #user_date_of_birth_1i {

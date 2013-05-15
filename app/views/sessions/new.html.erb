@@ -1,21 +1,13 @@
-<div id="singin_header" class="row show-grid">
-	<div class="span9">
-		<strong>Sign in as an Employee/Intern on OnBoarding Program</strong></br>
+<div id="singin_header" class="well row show-grid">
+	<div class="row-fluid">
+		<div class="span12">
+			<strong>Sign up as an Employee/Intern on OnBoarding Program</strong>
+		</div>
 	</div>
 
-	<% if @user.errors.any? %>
-		<h2 style="color:red"> error occured while saving </h2>
-		<% @user.errors.full_messages.each do |m| %>
-			<ul>
-				<li style="color:red"> <%= m %> </li>
-			</ul>
-		<% end %>
-	<% end %>
-
 	<%= simple_form_for @user, :html => {:id => "signin_form"} do |f| %>
-	  <%= f.input :email, required: true %>
-	  <%= f.input :password, label: 'Password', input_html: { maxlength: 15 }, required: true %>
+	  <%= f.input :email, required: true, placeholder:, "Email" %>
+	  <%= f.input :password, label: 'Password', input_html: { maxlength: 15 }, required: true,  placeholder: "Password" %>
 	  <%= f.button :submit, "Sign In" %>
 	<% end %>
-
 </div>

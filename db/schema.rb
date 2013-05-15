@@ -24,9 +24,6 @@ ActiveRecord::Schema.define(:version => 20130515083823) do
     t.datetime "updated_at",   :null => false
   end
 
-  add_index "invitations", ["from_id"], :name => "index_invitations_on_from_id"
-  add_index "invitations", ["to_id"], :name => "index_invitations_on_to_id"
-
   create_table "item_templates", :force => true do |t|
     t.string   "type_of"
     t.string   "description"
@@ -37,8 +34,6 @@ ActiveRecord::Schema.define(:version => 20130515083823) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
-
-  add_index "item_templates", ["task_template_id"], :name => "index_item_templates_on_task_template_id"
 
   create_table "items", :force => true do |t|
     t.string   "type_of"
@@ -55,8 +50,6 @@ ActiveRecord::Schema.define(:version => 20130515083823) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "items", ["task_id"], :name => "index_items_on_task_id"
-
   create_table "plans", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
@@ -70,8 +63,6 @@ ActiveRecord::Schema.define(:version => 20130515083823) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  add_index "plans", ["user_id"], :name => "index_plans_on_user_id"
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
@@ -103,14 +94,14 @@ ActiveRecord::Schema.define(:version => 20130515083823) do
     t.datetime "updated_at",          :null => false
   end
 
-  add_index "tasks", ["plan_id"], :name => "index_tasks_on_plan_id"
-
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "en_passwd"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "salt"
+    t.date     "date_of_birth"
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -120,8 +111,6 @@ ActiveRecord::Schema.define(:version => 20130515083823) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "salt"
-    t.date     "date_of_birth"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
