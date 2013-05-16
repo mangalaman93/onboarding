@@ -2,13 +2,16 @@
 
 <%= form_for @plan, url: wizard_path do |f| %>
 
-<% f.hidden_field :selectedIndices %>
+<div>
+<% f.hidden_field :selected_task_templates, :value => "selectedIndices" %>
 <ul class="thumbnails">
   <%= render @task_templates %>
 </ul>
-
-<% end %>
-
+</div><br>
+<div>
+<%= f.button :submit, "Continue" %>
+</div>
+	
 <script type="application/javascript">
     var selectedIndices = new Array();
 	function selectedTaskTemplate(selectedIndex) {
@@ -16,4 +19,6 @@
 		document.getElementById('thumbnail-id-' + selectedIndex).hidden = true;		
 	}	
 </script>
+
+<% end %>
 
