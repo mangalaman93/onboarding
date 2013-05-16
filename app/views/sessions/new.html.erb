@@ -6,7 +6,7 @@
 	</div>
 
 	<%= simple_form_for @user, :html => {:id => "signin_form"} do |f| %>
-	  <%= f.input :email, required: true, placeholder:, "Email" %>
+	  <%= f.input :email, required: true, placeholder: "Email" %>
 	  <%= f.input :password, label: 'Password', input_html: { maxlength: 15 }, required: true,  placeholder: "Password" %>
 	  <%= f.button :submit, "Sign In" %>
 	<% end %>
