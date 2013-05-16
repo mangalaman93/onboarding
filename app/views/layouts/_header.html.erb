@@ -8,18 +8,33 @@
       </button>
       <a class="brand" href=<%= home_path %>>OnBoarding</a>
       <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="">
-                <li> <%= link_to "Home", home_path %> </li>
-              </li>
-              <li class="">
-                <li> <%= link_to "About", about_path %> </li>
-              </li>
-              <li class="">
-                <li> <%= link_to "Contact Us", contact_path %> </li>
-              </li>
+        <ul class="nav">
+          <li class="<%= @home_active %>">
+            <%= link_to "Home", home_path %>
+          </li>
+          <li class="<%= @about_active %>">
+            <%= link_to "About", about_path %>
+          </li>
+          <li class="<%= @contact_active %>">
+            <%= link_to "Contact Us", contact_path %>
+          </li>
+        </ul>
+        <ul class="nav pull-right">
+          <li class="divider-vertical"></li>
+          <!-- drop down menu begins -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
             </ul>
-          </div>
+          </li>
+          <!-- dropdown menu ends -->
+        </ul>
+      </div>
     </div>
   </div>
 </div>

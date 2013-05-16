@@ -17,17 +17,16 @@ Onboarding::Application.routes.draw do
 
   devise_for :users
 
-  
-
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :suggestions, :only => [:new, :create]
 
   root :to => "pages#home"
 
   match "/signup",  :to => "users#new"
   match "/home",    :to => "pages#home"
   match "/about",   :to => "pages#about"
-  match "/contact", :to => "pages#contact"
+  match "/contact", :to => "suggestions#new"
   match "/signin",  :to => "sessions#new"
   match "/signout", :to => "sessions#destroy"
 

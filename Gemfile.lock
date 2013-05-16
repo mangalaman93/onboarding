@@ -53,6 +53,7 @@ GEM
     font-awesome-sass-rails (3.0.2.2)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
+    galetahub-simple_captcha (0.1.5)
     haml (4.0.2)
       tilt
     hike (1.2.2)
@@ -161,6 +162,7 @@ DEPENDENCIES
   annotate
   coffee-rails (~> 3.2.1)
   devise
+  galetahub-simple_captcha
   jquery-rails
   pg
   rails (= 3.2.13)
