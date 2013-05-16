@@ -15,8 +15,6 @@ Onboarding::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  devise_for :users
-
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :suggestions, :only => [:new, :create]
@@ -27,6 +25,7 @@ Onboarding::Application.routes.draw do
   match "/home",    :to => "pages#home"
   match "/about",   :to => "pages#about"
   match "/contact", :to => "suggestions#new"
+  match "/settings",:to => "pages#settings"
   match "/signin",  :to => "sessions#new"
   match "/signout", :to => "sessions#destroy"
 
