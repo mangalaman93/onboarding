@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 	before_filter :redirect_to_home, :only => [:new]
+
   def new
   	@user = current_user
     @contact_active = "active"
