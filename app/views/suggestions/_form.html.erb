@@ -7,7 +7,7 @@
                                 hint: "Maximum 150 characters",
                                 label: "Suggestion/Query" %>
   <div class="control-group <%= (@sug.valid_with_captcha? || @sug.new_record?) ? "" : "error" %>">
-    <label class="control-label">reCAPTCHA</label>
+    <label class="control-label">Captcha</label>
     <div class="controls">
        <%= f.simple_captcha :placeholder => "Enter above characters" %>
     </div>

@@ -39,6 +39,11 @@ module SessionsHelper
 	    user == current_user
 	end
 
+	def correct_user(user_id)
+	    @user = User.find(user_id)
+	    redirect_to(root_path) unless current_user?(@user)
+	 end
+
 	private
 	def user_from_remember_token
 		User.authenticate_with_salt(*remember_token)

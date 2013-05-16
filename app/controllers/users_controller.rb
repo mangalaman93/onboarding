@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_filter :authenticate, :only => [:edit, :show]
-  before_filter :correct_user, :only => [:edit, :show]
+  before_filter :only => [:edit, :show]  do |controller|
+    controller.correct_user(params[:id])
+  end
 
   def index
     @users = User.all
@@ -40,20 +42,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_back_or @user
+      redirect_back_or user
     else
-      render 'new'
+      render signup_path
     end
   end
 
   def show
     @user = User.find(params[:id])
     @home_active = "active"
-  end
-
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_path) unless current_user?(@user)
   end
 
   private

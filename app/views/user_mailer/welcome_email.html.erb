@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	</head>
+	<body>
+		<h3>Hi <%= @user.name %>,</h3>
+			<br>
+			<p>
+				You are invited by your mentor to join OnBoarding. 
+				To Sign up, just follow this link: <%= @url %>. The
+				link expires in a day from now.
+			</p>
+		<p>
+			To login to the site, just follow this link: <%= @url %>.
+		</p>
+		<br>
+		<p>Thanks for joining us and have a great day!</p>
+		<br>
+		<address>
+			regards
+			OnBoarding Team
+		</address>
+	</body>
+</html>
