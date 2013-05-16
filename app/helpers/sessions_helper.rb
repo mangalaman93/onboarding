@@ -21,6 +21,29 @@ module SessionsHelper
 		self.current_user = nil
 	end
 
+	def deny_access
+		store_location
+		redirect_to signin_path
+	end
+
+	def store_location
+		session[:return_to] = request.fullpath
+	end
+
+	def redirect_back_or(default)
+		redirect_to(session[:return_to] || default)
+		session[:return_to] = nil
+	end
+
+	def correct_user
+		@user = User.find(params[:id])
+		redirect_to(root_path) unless current_user?(@user)
+	end
+
+	def current_user?(user)
+		user == current_user
+	end
+
 	private
 	def user_from_remember_token
 		User.authenticate_with_salt(*remember_token)

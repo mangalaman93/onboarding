@@ -11,9 +11,12 @@
 #
 
 class User < ActiveRecord::Base
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
   # Setup accessible (or protected) attributes for your model
   attr_accessor :password
-  attr_accessible :email, :name, :date_of_birth, :password_confirmation, :password
+  attr_accessible :email, :name, :date_of_birth, :password_confirmation, :password, :remember_me
 
   email_regex = /^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$/
 

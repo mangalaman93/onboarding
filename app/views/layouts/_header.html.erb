@@ -14,7 +14,7 @@
           </li>
           <% if signed_in? %>
             <li class="<%= @profile_active %>">
-              <%= link_to "Profile", user_path(current_user) %>
+              <%= link_to "Profile", edit_user_path(current_user) %>
             </li>
             <li class="<%= @plan_active %>">
               <%= link_to "Plans", "#" %>
