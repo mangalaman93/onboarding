@@ -1,5 +1,6 @@
 class SuggestionsController < ApplicationController
   def new
+    @contact_active = "active"
   	@sug = Suggestion.new
     if params[:suggestion]
       @sug.email = params[:suggestion][:email]
