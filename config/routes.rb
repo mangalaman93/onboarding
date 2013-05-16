@@ -1,17 +1,15 @@
 Onboarding::Application.routes.draw do
-  get "invitations/new"
+#  get "invitations/new"
 
-  get "invitations/confirm"
+#  get "invitations/confirm"
 
-  get "item_templates/new"
+#  get "item_templates/new"
 
-  get "task_templates/new"
+#  get "task_templates/new"
 
-  get "items/new"
+#  get "items/new"
 
-  get "tasks/new"
-
-  get "plans/new"
+#  get "tasks/new"
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
@@ -20,6 +18,12 @@ Onboarding::Application.routes.draw do
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :suggestions, :only => [:new, :create]
+  resources :plans
+  resources :plan_creator
+  resources :tasks
+  resources :items
+  resources :task_templates
+  resources :item_templates
 
   root :to => "pages#home"
 

@@ -1,0 +1,19 @@
+<h1>Select Templates</h1>
+
+<%= form_for @plan, url: wizard_path do |f| %>
+
+<% f.hidden_field :selectedIndices %>
+<ul class="thumbnails">
+  <%= render @task_templates %>
+</ul>
+
+<% end %>
+
+<script type="application/javascript">
+    var selectedIndices = new Array();
+	function selectedTaskTemplate(selectedIndex) {
+		selectedIndices[selectedIndices.length] = selectedIndex;
+		document.getElementById('thumbnail-id-' + selectedIndex).hidden = true;		
+	}	
+</script>
+

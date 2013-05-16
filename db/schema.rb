@@ -128,8 +128,6 @@ ActiveRecord::Schema.define(:version => 20130516003802) do
     t.string   "en_passwd"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "salt"
-    t.date     "date_of_birth"
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -139,6 +137,8 @@ ActiveRecord::Schema.define(:version => 20130516003802) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "salt"
+    t.date     "date_of_birth"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
