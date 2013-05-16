@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_back_or user
+      redirect_back_or @user
     else
       render 'new'
     end
