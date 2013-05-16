@@ -1,13 +1,22 @@
-<div id="singin_header" class="well row show-grid">
+<div id="signin_header" class="well row show-grid">
 	<div class="row-fluid">
 		<div class="span12">
-			<strong>Sign up as an Employee/Intern on OnBoarding Program</strong>
+			<strong>Sign In as an Employee/Intern/admin on OnBoarding Program</strong>
 		</div>
 	</div>
 
-	<%= simple_form_for @user, :html => {:id => "signin_form"} do |f| %>
+	<%= simple_form_for(:session, :html => {:id => "signin_form",
+								  :class => "form-horizontal"}, :url => sessions_path) do |f| %>
+
+		<% if flash[:message] %>
+			<div class="alert myalert alert-<%= flash[:type] %>">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <p> <%= flash[:message]%> </p>
+			</div>
+		<% end %>
+
 	  <%= f.input :email, required: true, placeholder: "Email" %>
 	  <%= f.input :password, label: 'Password', input_html: { maxlength: 15 }, required: true,  placeholder: "Password" %>
-	  <%= f.button :submit, "Sign In" %>
+	  <%= f.button :submit, "Sign In", :id => "signin_btn" %>
 	<% end %>
 </div>

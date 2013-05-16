@@ -39,7 +39,6 @@ body > .navbar .brand {
   margin-left: 20px;
   /*float: right;*/
   margin-right: 2%;
-  margin-left: 7% !important;
   font-weight: bold;
   color: #EEA;
   text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
@@ -55,7 +54,7 @@ body > .navbar .brand:hover {
 /* Special grid styles
 -------------------------------------------------- */
 .show-grid {
-  margin-top: 10px;
+/*  margin-top: 10px;*/
   margin-bottom: 20px;
 }
 .show-grid [class*="span"] {
@@ -85,13 +84,19 @@ body > .navbar .brand:hover {
 }
 
 /* custom css */
-#singin {
+#signin_header {
   margin-left: 17%;
   margin-right: 15%;
+  padding-top: 2%;
 }
 
 #signin_form {
-  padding-top: 20px;
+  padding-top:3%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+#signin_btn {
   margin-left: 20%;
   margin-right: 20%;
 }
@@ -133,4 +138,9 @@ body > .navbar .brand:hover {
 /* About page */
 .justify {
  text-align: justify;
+}
+
+/* sign in page */
+.myalert {
+  text-align: center;
 }
