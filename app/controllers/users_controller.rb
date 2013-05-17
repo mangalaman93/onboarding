@@ -33,6 +33,12 @@ class UsersController < ApplicationController
   # end
 
   def new
+    email = params[:email]
+    uuid = params[:guid]
+    invite = Invitation.find_by_guid(uuid)
+    redirect_to(user_path(current_user)) and return unless current_user.nil?
+    redirect_to(root_path) and return unless !invite.nil?
+    redirect_to(root_path) and return unless (email == invite.to_email && !invite.is_confirmed)
     @user = User.new
     if params[:user]
       @user.email = params[:user][:email]
