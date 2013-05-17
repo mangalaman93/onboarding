@@ -52,6 +52,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @home_active = "active"
+    @home_active = "active"    
   end
 end

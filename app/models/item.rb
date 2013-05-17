@@ -3,7 +3,7 @@
 # Table name: items
 #
 #  id          :integer          not null, primary key
-#  type        :string(255)
+#  type_of     :string(255)
 #  description :string(255)
 #  duration    :integer
 #  user_id     :integer

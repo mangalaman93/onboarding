@@ -3,7 +3,7 @@
 # Table name: item_templates
 #
 #  id               :integer          not null, primary key
-#  type             :string(255)
+#  type_of          :string(255)
 #  description      :string(255)
 #  duration         :integer
 #  comments         :string(255)
