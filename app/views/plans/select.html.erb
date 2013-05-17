@@ -8,7 +8,7 @@
 <div>
 	<button type="submit" onclick="submitSelectedTemplates();">Continue</button>
 </div>
-	
+
 <script type="application/javascript">
     var selectedIndices = new Array();
 	function selectedTaskTemplate(selectedIndex) {
@@ -16,6 +16,10 @@
 		document.getElementById('thumbnail-id-' + selectedIndex).hidden = true;	
 		document.getElementById('thumbnail-box-' + selectedIndex).style.background = "black";	
 	}	
+	
+	function submitSelectedTemplates() {		
+		window.location = 'plans/modify?selectedTemplates=' + selectedIndices;
+	}
 </script>
 
 

@@ -1,0 +1,25 @@
+<div>	
+	<a class="btn btn-primary btn-large" href="<%= plans_path %>/new">Create a new Plan!</a>
+</div>
+
+<div>
+	Current Plan overview:
+	
+	<% if @user.plans.first %>
+	<div class="tabbable tabs-left">
+		<ul class="nav nav-tabs">
+				<% @user.plans.first.tasks.each do |task| %>
+  					<li><a href="#tab<%= task.id %>"><%= task.title%></a></li>
+				<% end %>
+		</ul>
+		
+		<div class="tab-content">
+			
+		</div>
+	</div>
+	<% end %>
+</div>
+	
+	
+
+

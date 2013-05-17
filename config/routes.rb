@@ -1,5 +1,7 @@
 Onboarding::Application.routes.draw do
   
+  
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :users
@@ -12,6 +14,10 @@ Onboarding::Application.routes.draw do
   resources :items
   resources :task_templates
   resources :item_templates
+  
+  get 'plans/select'
+  match 'plans/modify', :to => "plans#modify"
+  match 'plans/assign', :to => "plans#assign"
 
   root :to => "pages#home"
 
