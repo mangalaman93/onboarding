@@ -15,10 +15,17 @@ class InvitationsController < ApplicationController
     @invite = Invitation.new(params[:invitation])
     @invite.from_id = current_user.id
     @invite.guid = SecureRandom.uuid
+
+    if Rails.env.development?
+      host = "localhost:3000"
+    else
+      host = "onboarding.herokuapp.com"
+    end
+
     if @invite.save
       # Tell the UserMailer to send a welcome Email after 
       user_email = params[:invitation][:to_email]
-      url = "localhost:3000/signup?guid=#{@invite.guid}&email=#{user_email}"
+      url = "/signup?guid=#{@invite.guid}&email=#{user_email}"
       UserMailer.welcome_email(user_email, url).deliver
       redirect_to new_invitation_path, :message => "Invitation successfully sent!"
     else
