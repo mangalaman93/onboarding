@@ -2,7 +2,7 @@
 <div class="form-inputs">
 	<%= f.input :name, required: true %>
   <%= f.input :email, required: true %>
-  <%= f.input :suggestion_data, input_html: { maxlength: 50, :rows => 5 },
+  <%= f.input :suggestion_data, input_html: { maxlength: 150, :rows => 5 },
                                 required: true,
                                 hint: "Maximum 150 characters",
                                 label: "Suggestion/Query" %>

@@ -1,0 +1,9 @@
+<%= simple_form_for @invite, :html => {:id => "signin_form", :class => "form-horizontal"} do |f| %>
+<!-- <%= f.association :user, label_method: :name, required: true, label: "To:" %> -->
+	<%= f.input :to_email, :presence => true, :label => "To" %>
+  <%= f.input :content, input_html: { maxlength: 150, :rows => 5 },
+                                required: true,
+                                hint: "maximum 150 characters only",
+                                label: "Email Content" %>
+  <%= f.button :submit, "Send", :class => "signin_btn btn-primary btn-large", :style => "margin-left: 45%" %>
+<% end %>

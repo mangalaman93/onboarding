@@ -14,5 +14,15 @@
 #
 
 class Invitation < ActiveRecord::Base
-  attr_accessible :content, :from_id, :guid, :is_confirmed, :sent_date, :to_id
+  attr_accessible :content, :from_id, :guid, :is_confirmed, :sent_date, :to_email
+
+  belongs_to :user, :foreign_key => :id
+
+  email_regex = /^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$/
+
+  validates :from_id, :presence => true
+
+  validates :to_email,
+  			:format => { :with => email_regex, :message => "Email is not in proper format" },
+    		:presence => true
 end

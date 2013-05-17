@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     if params[:user]
       @user.email = params[:user][:email]
       @user.name = params[:user][:name]
+      @user.date_of_birth = params[:user][:date_of_birth]
     end
   end
 
@@ -36,13 +37,14 @@ class UsersController < ApplicationController
     if params[:user]
       @user.email = params[:user][:email]
       @user.name = params[:user][:name]
+      @user.date_of_birth = params[:user][:date_of_birth]
     end
   end
 
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_back_or user
+      redirect_back_or user_path(@user)
     else
       render signup_path
     end
@@ -51,10 +53,5 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @home_active = "active"
-  end
-
-  private
-  def authenticate
-    deny_access unless signed_in?
   end
 end

@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
     		:uniqueness => { :case_sensitive => false }
 
   has_many :plans
+  # has_many :invitations, :foreign_key => :to_id
   before_save :encrypt_password
 
   def has_password?(submitted_password)

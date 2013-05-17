@@ -11,17 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130516003802) do
+ActiveRecord::Schema.define(:version => 20130517022932) do
 
   create_table "invitations", :force => true do |t|
     t.integer  "from_id"
-    t.integer  "to_id"
+    t.string   "to_email"
     t.text     "content"
     t.string   "guid"
-    t.datetime "sent_date"
-    t.boolean  "is_confirmed"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "sent_date",    :default => '2013-05-17 01:26:40'
+    t.boolean  "is_confirmed", :default => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
   end
 
   create_table "item_templates", :force => true do |t|
@@ -115,11 +115,11 @@ ActiveRecord::Schema.define(:version => 20130516003802) do
     t.string   "name"
     t.string   "email"
     t.string   "en_passwd"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "salt"
     t.date     "date_of_birth"
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(:version => 20130516003802) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.boolean  "is_admin",               :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

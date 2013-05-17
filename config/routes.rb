@@ -1,13 +1,11 @@
 Onboarding::Application.routes.draw do
-
-  get "invitations/new"
-  get "invitations/confirm"
-
+  
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :suggestions, :only => [:new, :create]
+  resources :invitations, :only => [:new, :create, :confirm]
   resources :plans
   resources :plan_creator
   resources :tasks
@@ -24,6 +22,7 @@ Onboarding::Application.routes.draw do
   match "/settings",:to => "pages#settings"
   match "/signin",  :to => "sessions#new"
   match "/signout", :to => "sessions#destroy"
+  match "/invitations", :to => "invitations#new"
 
 
   # The priority is based upon order of creation:

@@ -9,6 +9,7 @@ gem 'pg'
 gem 'simple_form'
 gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem 'uuid'
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
