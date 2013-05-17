@@ -3,22 +3,17 @@
 	<head>
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 	</head>
-	<body>
-		<h3>Hi <%= @user.name %>,</h3>
-			<br>
+	<body> <% debugger %>
+		<h3>Dear user,</h3>
 			<p>
-				You are invited by your mentor to join OnBoarding. 
-				To Sign up, just follow this link: <%= @url %>. The
-				link expires in a day from now.
-			</p>
-		<p>
-			To login to the site, just follow this link: <%= @url %>.
+				You are invited to join OnBoarding. To Sign up, click <a href="<%= @url %>">here</a>.
+				The link expires in a day from now.
 		</p>
 		<br>
 		<p>Thanks for joining us and have a great day!</p>
 		<br>
 		<address>
-			regards
+			regards <br>
 			OnBoarding Team
 		</address>
 	</body>

@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
   		Digest::SHA2::hexdigest(str)
   	end
 
-  	def make_salt
+  	def make_salt(password)
   		secure_hash("#{Time.now.utc}--#{password}")
   	end
 

@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20130517022932) do
     t.string   "to_email"
     t.text     "content"
     t.string   "guid"
-    t.datetime "sent_date",    :default => '2013-05-17 01:26:40'
+    t.datetime "sent_date",    :default => '2013-05-17 11:50:30'
     t.boolean  "is_confirmed", :default => false
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false

@@ -8,20 +8,21 @@ class InvitationsController < ApplicationController
   # end
 
   def new
-  	@invite = Invitation.new
+    @invite = Invitation.new
   end
 
   def create
-  	@invite = Invitation.new(params[:invite])
+    @invite = Invitation.new(params[:invitation])
     @invite.from_id = current_user.id
     @invite.guid = SecureRandom.uuid
     if @invite.save
-    	# Tell the UserMailer to send a welcome Email after save
-      @user = User.find_by_id(params[:to_id])
-      @url = "localhost:3000/signup?guid=#{@invite.guid}&email=#{@user.email}"
-      UserMailer.welcome_email.deliver
+      # Tell the UserMailer to send a welcome Email after 
+      url = "localhost:3000/signup?guid=#{@invite.guid}"
+      user_email = params[:invitation][:to_email]
+      UserMailer.welcome_email(user_email, url).deliver
       redirect_to new_invitation_path, :message => "Invitation successfully sent!"
     else
+      # raise @invite.errors.full_messages.to_s
       render new_invitation_path
     end        
   end

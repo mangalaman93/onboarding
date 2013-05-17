@@ -34,4 +34,27 @@ Onboarding::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # action mailer settings
+  EMAIL_ENABLED = false
+  if EMAIL_ENABLED
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+
+    # require "smtp_tls"
+    ActionMailer::Base.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :domain => "gmail.com",
+      :authentication => :plain,
+      :user_name => "",
+      :password => ""
+    }
+  else
+    # Letter opener gem setting
+    config.action_mailer.delivery_method = :letter_opener
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+  end
 end
