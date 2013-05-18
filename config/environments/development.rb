@@ -36,7 +36,7 @@ Onboarding::Application.configure do
   config.assets.debug = true
 
   # action mailer settings
-  EMAIL_ENABLED = Rails.env.development? 
+  EMAIL_ENABLED = !Rails.env.development? 
   if EMAIL_ENABLED
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.perform_deliveries = true
