@@ -25,7 +25,7 @@ class InvitationsController < ApplicationController
     if @invite.save
       # Tell the UserMailer to send a welcome Email after 
       user_email = params[:invitation][:to_email]
-      url = "/signup?guid=#{@invite.guid}&email=#{user_email}"
+      url = "#{host}/signup?guid=#{@invite.guid}&email=#{user_email}"
       UserMailer.welcome_email(user_email, url).deliver
       redirect_to new_invitation_path, :message => "Invitation successfully sent!"
     else

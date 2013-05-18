@@ -48,8 +48,8 @@ Onboarding::Application.configure do
       :port => 587,
       :domain => "gmail.com",
       :authentication => :plain,
-      :user_name => "",
-      :password => ""
+      :user_name => "0093kumar",
+      :password => "hogvaeri"
     }
   else
     # Letter opener gem setting
