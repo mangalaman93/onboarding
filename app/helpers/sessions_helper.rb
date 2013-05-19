@@ -21,8 +21,8 @@ module SessionsHelper
 		self.current_user = nil
 	end
 
-	def authenticate
-		deny_access unless signed_in?
+	def store_location
+		session[:return_to] = request.fullpath
 	end
 
 	def deny_access
@@ -30,8 +30,9 @@ module SessionsHelper
 		redirect_to signin_path
 	end
 
-	def store_location
-		session[:return_to] = request.fullpath
+	def authenticate
+		deny_access :type => "info",
+	    					:message => "Please login to access to access this page!" unless signed_in?
 	end
 
 	def redirect_back_or(default)
@@ -45,8 +46,14 @@ module SessionsHelper
 
 	def correct_user(user_id)
 	    @user = User.find(user_id)
-	    redirect_to(root_path) unless current_user?(@user)
-	 end
+	    redirect_to(root_path, :type => "info",
+	    											 :message => "You are not allowed to access this page!") unless current_user?(@user)
+	end
+
+	def admin_only_access(user_id)
+    redirect_to(user_path(user_id), :type => "info",
+	    															:message => "You are not allowed to access this page!") unless current_user.is_admin
+  end
 
 	private
 	def user_from_remember_token

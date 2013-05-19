@@ -27,16 +27,11 @@ class InvitationsController < ApplicationController
       user_email = params[:invitation][:to_email]
       url = "#{host}/signup?guid=#{@invite.guid}&email=#{user_email}"
       UserMailer.welcome_email(user_email, url, params[:invitation][:content]).deliver
-      redirect_to new_invitation_path, :message => "Invitation successfully sent!"
+      redirect_to new_invitation_path, :type => "success", :message => "Invitation successfully sent!"
     else
+      flash[:type] = "error"
+      flash[:message] = "Error occurred while sending the invitation!"
       render new_invitation_path
-    end        
-  end
-
-  def confirm
-  end
-
-  def admin_only_access(user_id)
-    redirect_to user_path(user_id) unless current_user.is_admin
+    end      
   end
 end

@@ -1,18 +1,6 @@
 <div id="contact" class="hero-unit">
 	<h1 style="padding-bottom: 5%">Contact us</h1>
 
-	<% if flash[:success] %>
-		<div class="alert alert-success">
-			<button type="button" class="close" data-dismiss="alert">×</button>
-			<strong>Thank you!</strong> We will get back to you as soon as possible.
-		</div>
-	<% end %>
-		<% if flash[:error] %>
-		    <div class="alert alert-error">
-		      <button type="button" class="close" data-dismiss="alert">×</button>
-		      <strong>Error occured!</strong> Please fill proper information (captcha may be wrong).
-		    </div>
-	<% end %>
-
+	<%= render "layouts/showflash" %>
 	<%= render "suggestions/form" %>
 </div>

@@ -1,0 +1,6 @@
+<% if flash[:message] %>
+	<div class="alert alert-<%= flash[:type] %>">
+	  <button type="button" class="close" data-dismiss="alert">&times;</button>
+	  <p> <%= flash[:message]%> </p>
+	</div>
+<% end %>

@@ -63,21 +63,21 @@ class User < ActiveRecord::Base
   end
 
   private
-  	def encrypt_password
-  		self.salt = make_salt(self.password) if new_record?
-  		self.en_passwd = encrypt(self.password)
-  	end
+  
+	def encrypt_password
+		self.salt = make_salt(self.password) if new_record?
+		self.en_passwd = encrypt(self.password)
+	end
 
-  	def encrypt(str)
-  		secure_hash("#{salt}--#{str}")
-  	end
+	def encrypt(str)
+		secure_hash("#{salt}--#{str}")
+	end
 
-  	def secure_hash(str)
-  		Digest::SHA2::hexdigest(str)
-  	end
+	def secure_hash(str)
+		Digest::SHA2::hexdigest(str)
+	end
 
-  	def make_salt(password)
-  		secure_hash("#{Time.now.utc}--#{password}")
-  	end
-
+	def make_salt(password)
+		secure_hash("#{Time.now.utc}--#{password}")
+	end
 end

@@ -11,13 +11,10 @@
   <%= csrf_meta_tags %>
   <%= javascript_include_tag :defaults %>
 </head>
+
 <body>
-
 <%= render 'layouts/header' %>
-
 <%= debug(params) if Rails.env.development? %>
-
 <%= yield %>
-
 </body>
 </html>

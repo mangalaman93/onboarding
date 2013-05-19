@@ -32,9 +32,11 @@ class SuggestionsController < ApplicationController
                             "OnBoarding Team",
                             "Thanks you for your Suggestion/Query!",
                             "Your Suggestion/Query will be processed soon.").deliver      
-      redirect_to contact_path, :flash => { :success => true }
+      redirect_to contact_path, :type => "success",
+                                :message => "Thanks for your Suggestion/query! We will get back to you ASAP!"
     else
-      flash[:error] = true
+      flash[:type] = "error"
+      flash[:message] = "Error occurred! Please fill proper information(captcha may be wrong)"
       render new_suggestion_path
     end
   end
