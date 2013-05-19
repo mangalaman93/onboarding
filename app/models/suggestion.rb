@@ -21,6 +21,6 @@ class Suggestion < ActiveRecord::Base
   validates :suggestion_data, :presence => true, :length => { :maximum => 150}
   validates :email,
   			:format => { :with => email_regex,
-  						 :message => "Email is not in proper format" },
+  						 :message => "Not in proper format" },
     		:presence => true
 end

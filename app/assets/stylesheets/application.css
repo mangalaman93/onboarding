@@ -150,3 +150,16 @@ body > .navbar .brand:hover {
 .myalert {
   text-align: center;
 }
+
+/* messages */
+#top_header {
+  border-bottom: solid #e3e3e3;
+}
+
+#message_box {
+  border-right: solid #e3e3e3;
+}
+
+#messgages {
+
+}

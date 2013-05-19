@@ -3,9 +3,9 @@ class InvitationsController < ApplicationController
   before_filter :only => [:new]  do |controller|
     controller.correct_user(current_user.id)
   end
-  # before_filter :only => [:new] do |controller|
-  #   controller.admin_only_access(current_user)
-  # end
+  before_filter :only => [:new] do |controller|
+    controller.admin_only_access(current_user)
+  end
 
   def new
     @invite = Invitation.new
@@ -17,7 +17,7 @@ class InvitationsController < ApplicationController
     @invite.guid = SecureRandom.uuid
 
     if Rails.env.development?
-      host = "localhost:3000"
+      host = "0.0.0.0:3000"
     else
       host = "onboarding.herokuapp.com"
     end
@@ -26,10 +26,9 @@ class InvitationsController < ApplicationController
       # Tell the UserMailer to send a welcome Email after 
       user_email = params[:invitation][:to_email]
       url = "#{host}/signup?guid=#{@invite.guid}&email=#{user_email}"
-      UserMailer.welcome_email(user_email, url).deliver
+      UserMailer.welcome_email(user_email, url, params[:invitation][:content]).deliver
       redirect_to new_invitation_path, :message => "Invitation successfully sent!"
     else
-      # raise @invite.errors.full_messages.to_s
       render new_invitation_path
     end        
   end
@@ -38,7 +37,6 @@ class InvitationsController < ApplicationController
   end
 
   def admin_only_access(user_id)
-    debugger
     redirect_to user_path(user_id) unless current_user.is_admin
   end
 end

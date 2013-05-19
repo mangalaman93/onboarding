@@ -22,11 +22,6 @@ class Invitation < ActiveRecord::Base
 
   validates :from_id, :presence => true
 
-    # validates :email,
-  		# 	:format => { :with => email_regex, :message => "Email is not in proper format" },
-    # 		:presence => true
-
-  # validates :to_email,
-  # 			:format => { :with => email_regex, :message => "Email is not in proper format" },
-  #   		:presence => true
+  validates :to_email, :format => { :with => email_regex, :message => "Not in proper format" },
+    		:presence => true
 end

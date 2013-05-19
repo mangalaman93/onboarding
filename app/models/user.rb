@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   										 :confirmation => true
   validates :email,
   			:format => { :with => email_regex,
-  									 :message => "Email is not in proper format" },
+  									 :message => "Not in proper format" },
     		:presence => true,
     		:uniqueness => { :case_sensitive => false }
 
