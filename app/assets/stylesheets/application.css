@@ -156,14 +156,20 @@ body > .navbar .brand:hover {
   border-bottom: solid #e3e3e3;
 }
 
-#message_box {
+#message-box {
   border-right: solid #e3e3e3;
+  padding-top: 4px;
+  padding-right: 3px;
 }
 
 #messgages {
-
 }
 
 #new_message_btn {
   margin-top: -3%;
+}
+
+.group {
+  padding: 15px !important;
+  border: 1px solid #e5e5e5;
 }
