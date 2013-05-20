@@ -17,9 +17,9 @@ class InvitationsController < ApplicationController
     @invite.guid = SecureRandom.uuid
 
     if Rails.env.development?
-      host = "0.0.0.0:3000"
+      host = "http://0.0.0.0:3000"
     else
-      host = "onboarding.herokuapp.com"
+      host = "http://onboarding.herokuapp.com"
     end
 
     if @invite.save
@@ -27,7 +27,7 @@ class InvitationsController < ApplicationController
       user_email = params[:invitation][:to_email]
       url = "#{host}/signup?guid=#{@invite.guid}&email=#{user_email}"
       UserMailer.welcome_email(user_email, url, params[:invitation][:content]).deliver
-      redirect_to new_invitation_path, :type => "success", :message => "Invitation successfully sent!"
+      redirect_to new_invitation_path, :flash => { :type => "success", :message => "Invitation successfully sent!" }
     else
       flash[:type] = "error"
       flash[:message] = "Error occurred while sending the invitation!"

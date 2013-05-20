@@ -4,15 +4,10 @@ Onboarding::Application.routes.draw do
   
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
+  resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :suggestions, :only => [:new, :create]
   resources :invitations, :only => [:new, :create]
-
-  match "/home",    :to => "pages#home"
-  match "/about",   :to => "pages#about"
-  match "/contact", :to => "suggestions#new"
-
-  resources :users
   resources :plans
   resources :plan_creator
   resources :tasks
@@ -20,14 +15,17 @@ Onboarding::Application.routes.draw do
   resources :task_templates
   resources :item_templates
   resources :messages
-  
+
   get 'plans/select'
+  match "/home",    :to => "pages#home"
+  match "/about",   :to => "pages#about"
+  match "/contact", :to => "suggestions#new"
   match 'plans/modify', :to => "plans#modify"
   match 'plans/assign', :to => "plans#assign"
-  match "/signup",  :to => "users#new"
-  match "/settings",:to => "pages#settings"
-  match "/signin",  :to => "sessions#new"
-  match "/signout", :to => "sessions#destroy"
+  match "/signup",      :to => "users#new"
+  match "/settings",    :to => "pages#settings"
+  match "/signin",      :to => "sessions#new"
+  match "/signout",     :to => "sessions#destroy"
   match "/invitations", :to => "invitations#new"
 
 

@@ -34,8 +34,9 @@ class User < ActiveRecord::Base
 
   validates :name, :presence => true
   validates :password, :length => { :minimum => 6},
-  										 :presence => true,
-  										 :confirmation => true
+  										 :confirmation => true,
+                       :presence => true,
+                       :on =>  :create
   validates :email,
   			:format => { :with => email_regex,
   									 :message => "Not in proper format" },

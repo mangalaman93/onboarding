@@ -163,3 +163,7 @@ body > .navbar .brand:hover {
 #messgages {
 
 }
+
+#new_message_btn {
+  margin-top: -3%;
+}
