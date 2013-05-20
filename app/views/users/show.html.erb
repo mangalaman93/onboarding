@@ -1,6 +1,12 @@
+
+<% if user_admin? %>
 <div>	
-	<a class="btn btn-primary btn-large" href="<%= plans_path %>/new">Create a new Plan!</a>
+	Summary of all Plans:
+	
+	
 </div>
+
+<% else %>
 
 <div>
 	Current Plan overview:
@@ -19,7 +25,14 @@
 	</div>
 	<% end %>
 </div>
-	
-	
+
+<% end %>
 
 
+<% if user_admin? %>
+<div>	
+	<a class="btn btn-primary btn-large" href="<%= plans_path %>/new">Create a new Plan!</a>
+</div>
+<% end %>
+	
+	

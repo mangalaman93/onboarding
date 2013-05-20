@@ -16,15 +16,18 @@ class PlansController < ApplicationController
     end
   end
   
+  def edit
+    @plan = Plan.fin(params[:id])    
+  end
+  
   def show    
         
     case params[:id]
     when "select"      
       render :select
     when "modify"
-      #selected_templates = params[:selectedTemplates].split(',').map{ |x| x.to_i }      
-      #selected_templates = params[:selectedTemplates]
-      @plan = Plan.find(cookies[:current_plan])      
+      @plan = Plan.find(cookies[:current_plan])
+      
       selected_templates = cookies[:selected_templates].split(',').map{ |x| x.to_i }
       
       selected_templates.each do |task_template_id|
@@ -38,13 +41,14 @@ class PlansController < ApplicationController
         task.plan_id = @plan
         
         if task.save!
+          #debugger
           # create the appropriate item tasks for the user
-          item_templates = ItemTemplate.find(task_template_id => task_template)
+          item_templates = ItemTemplate.where("task_template_id = ?",task_template)
           
-          items.templates.each do |item_template|
+          item_templates.each do |item_template|
             
             item = Item.new
-            item.type = item_template.type
+            item.type_of = item_template.type_of
             item.description = item_template.description
             item.duration = item_template.duration
             item.comments = item_template.comments
@@ -53,14 +57,16 @@ class PlansController < ApplicationController
             if item.save!
               
             else
-              render :modify, message => "Error saving individual items for the tasks!"
+              render :modify, :flash => { :type => "error",
+                :message => "Error saving individual items for the tasks!" }
             end
             
           end          
-          render :edit, message => "Successfully created the tasks/items for the user!"
+          render '/plans/' + @plan.id.to_s + '/edit', :flash => { :type => "info",
+                                    :message => "Successfully created the tasks/items for the user!" }
           
         else
-          render :modify, message => "Error saving tasks for the plan!"
+          render :modify, :flash => { :type => "error", :message => "Error saving tasks for the plan!" }
         end
         
       end
@@ -68,6 +74,8 @@ class PlansController < ApplicationController
       render :modify
     when "assign"
       render :assign
+    else
+      render :edit
     end
   end
   

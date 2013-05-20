@@ -26,6 +26,7 @@ end
 
 group :development do
   gem 'annotate'
+  gem 'debugger'
 end
 
 gem 'jquery-rails'

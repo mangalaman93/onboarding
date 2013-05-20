@@ -19,9 +19,7 @@
 	
 	function submitSelectedTemplates() {		
 		//window.location = 'plans/modify?selectedTemplates=' + selectedIndices;
-		alert(document.cookie);
 		$.cookie('selected_templates', selectedIndices);
-		alert(document.cookie);
 		window.location = 'plans/modify'
 	}
 </script>
