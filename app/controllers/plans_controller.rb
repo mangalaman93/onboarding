@@ -9,6 +9,7 @@ class PlansController < ApplicationController
     
     if(@plan.save)
       #redirect_to "/plan_creator"
+      cookies[:current_plan] = @plan.id
       render :select
     else
       render :new
@@ -21,8 +22,10 @@ class PlansController < ApplicationController
     when "select"      
       render :select
     when "modify"
-      selected_templates = params[:selectedTemplates].split(',').map{ |x| x.to_i }
+      #selected_templates = params[:selectedTemplates].split(',').map{ |x| x.to_i }      
       #selected_templates = params[:selectedTemplates]
+      @plan = Plan.find(cookies[:current_plan])      
+      selected_templates = cookies[:selected_templates].split(',').map{ |x| x.to_i }
       
       selected_templates.each do |task_template_id|
         task_template = TaskTemplate.find(task_template_id)
@@ -78,12 +81,4 @@ class PlansController < ApplicationController
     
   end
   
-  def modify
-    
-  end
-  
-  def assign
-    
-  end
-
 end
