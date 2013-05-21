@@ -16,3 +16,30 @@
 //= require bootstrap-editable
 //= require bootstrap-editable-rails
 //= require_tree .
+
+$(function() {
+  var message_index = 0;
+
+  //function to show the new message form
+  $("#new_message_btn" ).click(function() {
+    $("#old-messages" ).hide("blind", {}, 200);
+    $("#new-message" ).show("blind", {}, 400);
+    $('[id^="groups-"]').removeClass("active");
+    return false;
+  });
+
+  //function to show the new message form
+  $("#reply_message_btn" ).click(function() {
+    $("#reply_message_btn").hide();
+    $("#reply-message" ).show("blind", {}, 400);
+    return false;
+  });
+
+  $(".group").click(function() {
+    $('[id^="groups-"]').removeClass("active");
+    jQuery(this).closest("li").addClass("active");
+    $("#new-message" ).hide("blind", {}, 200);
+    $("#old-messages" ).show("blind", {}, 400);
+    return false;
+  });
+});

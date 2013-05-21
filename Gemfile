@@ -14,6 +14,8 @@ gem "letter_opener", :group => :development
 gem 'will_paginate'
 gem 'best_in_place'
 gem 'bootstrap-editable-rails'
+gem "foreigner"
+gem 'gravatar_image_tag'
 
 # Gems used only for assets and not required
 # in production environments by default.

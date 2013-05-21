@@ -5,7 +5,12 @@ class MessagesController < ApplicationController
   end
 
 	def index
+		@users = User.all
+		@message = Message.new
 		id = current_user.id
-		 Group.where("user_id = ?", id).order("updated_at DESC").only(:group_id)
+		Group.where("user_id = ?", id).order("updated_at DESC").only(:group_id)
+	end
+
+	def create
 	end
 end
