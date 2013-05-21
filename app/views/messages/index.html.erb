@@ -1,19 +1,19 @@
 <div class="container well">
-	<div id="top_header">
-		<h1 style="margin-left: 5%">Inbox</h1>
-		<a class="btn" id="new_message_btn" style="float:right">New Message</a>
-	</div>
-	<div class="span3" id="message-box">
+  <div id="top_header">
+    <h1 style="margin-left: 5%">Inbox</h1>
+    <a class="btn" id="new_message_btn" style="float:right">New Message</a>
+  </div>
+  <div class="span3" id="message-box">
     <ul class="nav nav-list">
-      <li class="active">
-        <a class="group" href="#dropdowns">
+      <li id="groups-<%=1%>">
+        <a class="group" href="#">
           <i class="icon-chevron-right"></i>
           Aman Mangal, Sivakumar, Arun
         </a>
       </li>
 
-      <li>
-        <a class="group" href="#dropdowns">
+      <li id="groups-<%=2%>">
+        <a class="group" href="#">
           <i class="icon-chevron-right"></i>
           Aman Mangal, Sivakumar, Arun
         </a>
@@ -23,6 +23,9 @@
   <div class="span8" id="messages">
     <div id="new-message">
       <%= render "new_message" %>
+    </div>
+    <div id="old-messages">
+      <%= render "old_messages" %>
     </div>
   </div>
 </div>

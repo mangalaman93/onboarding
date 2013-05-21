@@ -11,6 +11,8 @@ gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem 'uuid'
 gem 'thin'
 gem "letter_opener", :group => :development
+gem "foreigner"
+gem 'gravatar_image_tag'
 
 # Gems used only for assets and not required
 # in production environments by default.

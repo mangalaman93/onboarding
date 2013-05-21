@@ -157,12 +157,13 @@ body > .navbar .brand:hover {
 }
 
 #message-box {
-  border-right: solid #e3e3e3;
+  /*border-right: solid #e3e3e3;*/
   padding-top: 4px;
   padding-right: 3px;
 }
 
-#messgages {
+#messages {
+  border-left: solid #e3e3e3;
 }
 
 #new_message_btn {
@@ -175,5 +176,13 @@ body > .navbar .brand:hover {
 }
 
 #new-message {
+  display: none;
+}
+
+#old-messages {
+  display: none;
+}
+
+#reply-message {
   display: none;
 }
