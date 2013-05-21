@@ -3,7 +3,7 @@
 <div>	
 	Summary of all Plans:
 	
-	
+	<%= render 'plans/plan_summary' %>	
 </div>
 
 <% else %>
@@ -11,19 +11,8 @@
 <div>
 	Current Plan overview:
 	
-	<% if @user.plans.first %>
-	<div class="tabbable tabs-left">
-		<ul class="nav nav-tabs">
-				<% @user.plans.first.tasks.each do |task| %>
-  					<li><a href="#tab<%= task.id %>"><%= task.title%></a></li>
-				<% end %>
-		</ul>
-		
-		<div class="tab-content">
-			
-		</div>
-	</div>
-	<% end %>
+	<%= render 'plans/form'%>
+	
 </div>
 
 <% end %>

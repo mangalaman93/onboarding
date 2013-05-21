@@ -11,6 +11,9 @@ gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem 'uuid'
 gem 'thin'
 gem "letter_opener", :group => :development
+gem 'will_paginate'
+gem 'best_in_place'
+gem 'bootstrap-editable-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

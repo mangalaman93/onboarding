@@ -16,6 +16,6 @@
 class Task < ActiveRecord::Base
   attr_accessible :creator_id, :invitation_sentdate, :owner_confirmed, :owner_id, :plan_id, :title
 
-  has_many :item
+  has_many :items
   belongs_to :plan
 end

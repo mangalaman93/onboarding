@@ -33,6 +33,11 @@ GEM
       rake
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    best_in_place (2.1.0)
+      jquery-rails
+      rails (~> 3.1)
+    bootstrap-editable-rails (0.0.4)
+      railties (~> 3.1)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
     builder (3.0.4)
@@ -180,12 +185,15 @@ GEM
     wicked (0.6.1)
       activesupport (>= 3.0.7)
       rails (>= 3.0.7)
+    will_paginate (3.0.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   annotate
+  best_in_place
+  bootstrap-editable-rails
   coffee-rails (~> 3.2.1)
   debugger
   devise
@@ -202,3 +210,4 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
   uuid
   wicked
+  will_paginate

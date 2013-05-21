@@ -22,4 +22,25 @@ class Plan < ActiveRecord::Base
 
   has_many :tasks, dependent: :destroy
   belongs_to :user
+  
+  def completion_status
+    done_count = 0
+    total_count = 0
+    
+    tasks.each do |each_task|
+      each_task.items do |each_item|
+        total_count = total_count + 1
+        if each_item.is_done?  
+          done_count = done_count + 1
+        end
+      end 
+    end
+    
+    "(" + done_count.to_s + "/" + total_count.to_s + ")"
+        
+  end
+  
+  def user
+    User.find(user_id)
+  end
 end

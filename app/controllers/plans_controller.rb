@@ -7,7 +7,7 @@ class PlansController < ApplicationController
     @plan = Plan.new(params[:plan])
     @task_templates = TaskTemplate.find(:all)
     
-    if(@plan.save)
+    if(@plan.save!)
       #redirect_to "/plan_creator"
       cookies[:current_plan] = @plan.id
       render :select
@@ -17,10 +17,13 @@ class PlansController < ApplicationController
   end
   
   def edit
-    @plan = Plan.fin(params[:id])    
+    @user_plan = Plan.find(params[:id])    
   end
   
-  def show    
+  def show   
+    #debugger 
+    @user_plans = current_user.plans
+    @user_plan = Plan.find(params[:id])  
         
     case params[:id]
     when "select"      
@@ -38,7 +41,7 @@ class PlansController < ApplicationController
         task.title = task_template.title
         task.creator_id = current_user 
         task.owner_id = @plan.user
-        task.plan_id = @plan
+        task.plan_id = @plan.id
         
         if task.save!
           #debugger
@@ -53,6 +56,7 @@ class PlansController < ApplicationController
             item.duration = item_template.duration
             item.comments = item_template.comments
             item.metadata = item_template.metadata
+            item.task_id = task.id
             
             if item.save!
               
@@ -89,4 +93,9 @@ class PlansController < ApplicationController
     
   end
   
+  def destroy
+     (Plan.find(params[:id])).destroy
+     redirect_to root_path
+  end
+    
 end
