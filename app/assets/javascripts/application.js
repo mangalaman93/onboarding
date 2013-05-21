@@ -13,3 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+	var message_index = 0;
+
+	//function to show the new message form
+  $("#new_message_btn" ).click(function() {
+    $("#new-message" ).show("blind", {}, 400);
+    return false;
+  });
+});

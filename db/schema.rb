@@ -11,21 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130520083951) do
-
-  create_table "groups", :force => true do |t|
-    t.integer  "group_id"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130519052215) do
 
   create_table "invitations", :force => true do |t|
     t.integer  "from_id"
     t.string   "to_email"
     t.text     "content"
     t.string   "guid"
-    t.datetime "sent_date",    :default => '2013-05-17 11:50:30'
+    t.datetime "sent_date",    :default => '2013-05-17 01:26:40'
     t.boolean  "is_confirmed", :default => false
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
@@ -101,31 +94,6 @@ ActiveRecord::Schema.define(:version => 20130520083951) do
   end
 
   add_index "simple_captcha_data", ["key"], :name => "idx_key"
-
-  create_table "suggestions", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.text     "suggestion_data"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  create_table "task_templates", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "tasks", :force => true do |t|
-    t.string   "title"
-    t.integer  "creator_id"
-    t.integer  "owner_id"
-    t.datetime "invitation_sentdate"
-    t.boolean  "owner_confirmed"
-    t.integer  "plan_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
