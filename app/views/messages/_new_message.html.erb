@@ -1,9 +1,11 @@
 <%= simple_form_for @message, :url => {:action => :create},
-															:remote => true,
 															:html => {:class => "form-horizontal"} do |f| %>
 <div class="form-inputs">
 	<%= f.input :group_id, collection: @users, required: true, label: "To:" %>
-  <%= f.input :body, required: true %>
+	<%= f.input :body, input_html: { maxlength: 100, :rows => 10 },
+                                required: true,
+                                hint: "Maximum 150 characters",
+                                label: "Message:" %>
 </div>
   <div class="form-actions">
   <%= f.button :submit, "Send" %>

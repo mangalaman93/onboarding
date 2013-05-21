@@ -44,10 +44,9 @@ class User < ActiveRecord::Base
     		:uniqueness => { :case_sensitive => false }
 
   has_many :plans, :dependent => :destroy
-  has_many :groups, :dependent => :destroy,
-                    :foreign_key => "user_id"
+  has_and_belongs_to_many :groups, :foreign_key => "user_id"
   has_many :messages, :dependent => :destroy,
-                       :foreign_key => "sender_id"
+                      :foreign_key => "sender_id"
   # has_many :invitations, :foreign_key => :to_id
   before_save :encrypt_password
 

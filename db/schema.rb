@@ -11,9 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< Updated upstream
 ActiveRecord::Schema.define(:version => 20130519052215) do
+=======
+ActiveRecord::Schema.define(:version => 20130521082812) do
+
+  create_table "geckos", :force => true do |t|
+    t.float    "value"
+    t.float    "previous"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+>>>>>>> Stashed changes
 
   create_table "groups", :force => true do |t|
+    t.integer  "no_users"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "groups_users", :force => true do |t|
     t.integer  "group_id"
     t.integer  "user_id"
     t.datetime "created_at", :null => false

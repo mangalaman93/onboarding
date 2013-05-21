@@ -1,8 +1,6 @@
 class Group < ActiveRecord::Base
-  attr_accessible :group_id, :user_id
+  attr_accessible :no_users
 
-  belongs_to :users
-
-  validates :group_id, :presence => true
-  validates :user_id, :presence => true
+  has_and_belongs_to_many :users
+  validates :no_users, :presence => true
 end

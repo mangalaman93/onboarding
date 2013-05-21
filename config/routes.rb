@@ -14,7 +14,7 @@ Onboarding::Application.routes.draw do
   resources :items
   resources :task_templates
   resources :item_templates
-  resources :messages
+  resources :messages, :only => [:new, :create, :index]
 
   get 'plans/select'
   match "/home",    :to => "pages#home"

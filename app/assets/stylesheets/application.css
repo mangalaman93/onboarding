@@ -177,6 +177,7 @@ body > .navbar .brand:hover {
 
 #new-message {
   display: none;
+  padding: 10px;
 }
 
 #old-messages {
