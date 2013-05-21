@@ -23,7 +23,7 @@ class PlansController < ApplicationController
   def show   
     #debugger 
     @user_plans = current_user.plans
-    @user_plan = Plan.find(params[:id])  
+      
         
     case params[:id]
     when "select"      
@@ -66,8 +66,12 @@ class PlansController < ApplicationController
             end
             
           end          
-          render '/plans/' + @plan.id.to_s + '/edit', :flash => { :type => "info",
-                                    :message => "Successfully created the tasks/items for the user!" }
+          #render '/plans/' + @plan.id.to_s + '/edit', :flash => { :type => "info",
+          #                          :message => "Successfully created the tasks/items for the user!" }
+          #@user_plan = @plan
+          #render :edit
+          redirect_to '/home'  
+          return        
           
         else
           render :modify, :flash => { :type => "error", :message => "Error saving tasks for the plan!" }
@@ -75,10 +79,13 @@ class PlansController < ApplicationController
         
       end
             
-      render :modify
+      #render :modify
+      redirect_to root_path
+      return
     when "assign"
       render :assign
     else
+      @user_plan = Plan.find(params[:id])
       render :edit
     end
   end

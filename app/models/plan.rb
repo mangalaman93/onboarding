@@ -27,9 +27,10 @@ class Plan < ActiveRecord::Base
     done_count = 0
     total_count = 0
     
+    #debugger
     tasks.each do |each_task|
+      total_count = total_count + each_task.items.count
       each_task.items do |each_item|
-        total_count = total_count + 1
         if each_item.is_done?  
           done_count = done_count + 1
         end
